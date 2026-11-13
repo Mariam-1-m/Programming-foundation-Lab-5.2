@@ -65,28 +65,25 @@ capacity=newCapacity;
 }
 void menuApp::observeUserKeys(){
 
- // Display instructions for the user
     std::printf("Press the arrow keys to test the program (press 'q' to quit):\n");
     char byte1='q';
     char byte2='q';
     char byte3='q';
 
-    // Infinite loop that runs until the user chooses to quit
+   
     do{
          std::cout<<"\033[2J\033[H"<<std::flush;
       
         displayMenu();
-        // Read a key from the user
+     
+
         byte1= getch_linux();
-         //std::cout<<"Byte 1 :: "<<byte1<<std::endl;
-        // If the key is the beginning of an arrow-key escape sequence
+      
         if (byte1 == '\033') {
-            // Skip the second character '['
+
             byte2=getch_linux();
-            //std::cout<<"Byte 2 :: "<<byte2<<std::endl;
             byte3=getch_linux();
-            // The third character determines the arrow direction
-            //std::cout<<"Byte 3 :: "<<byte3<<std::endl;
+         
             
             switch (byte3) {
                 case 'A'://up

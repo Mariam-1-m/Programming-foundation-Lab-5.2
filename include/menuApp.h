@@ -5,7 +5,7 @@
 #include <iostream>
 
 
-#include <cstdio>     // C standard I/O functions such as printf
+#include <cstdio>    
 #ifndef _WIN32
 #include <unistd.h>
 #endif
