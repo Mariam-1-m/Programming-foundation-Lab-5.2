@@ -3,6 +3,8 @@
 #include "../include/colors.h"
 #include "../include/arrowGet.h"
 #include "../include/menuApp.h"
+#include <thread>
+#include <chrono>
 
 
 
@@ -145,6 +147,8 @@ std::string department;
 double salary;
 char cont;
  std::cout<<"\033[2J\033[H"<<std::flush;
+std::cout<<"=========================== ADD EMPLOYEE SCREEN ============================\n\n";
+
 do{
 
 if(empCount>=capacity){
@@ -156,6 +160,11 @@ std::cin.ignore(10000,'\n');
 
 std::cout<<"Enter employee age : \n";
 std::cin>>age;
+if(age<=0){
+    std::cout<<"Try again with a valid age!"<<std::endl;
+    std::this_thread::sleep_for(std::chrono::seconds(1));
+    return;
+}
 std::cin.ignore(10000,'\n');
 
 
@@ -165,6 +174,11 @@ std::cin.ignore(10000,'\n');
 
 std::cout<<"Enter employee salary: \n";
 std::cin>>salary;
+if(salary<=0){
+   std::cout<<"Try again with a valid salary!"<<std::endl;
+    std::this_thread::sleep_for(std::chrono::seconds(1));
+    return;
+}
 std::cin.ignore(10000,'\n');
 
 
@@ -183,12 +197,13 @@ std::cin.clear();
 
 void menuApp::displayAllEmployees(){
     std::cout<<"\033[2J\033[H"<<std::flush;
+    std::cout<<"=========================== DISPLAY OUR EMPLOYEES ==========================\n";
     for(int i=0;i<empCount;i++){
-    std::cout<<"\n"<<"Employee :"<<i+1 <<" :\n";
-    std::cout<<employees[i].name<<"\n";
-    std::cout<<employees[i].age<<"\n";
-    std::cout<<employees[i].department<<"\n";
-    std::cout<<employees[i].salary<<"\n";
+    std::cout<<"\n"<<"Employee : "<<i+1 <<" \n";
+    std::cout<<"Name : "<<employees[i].name<<"\n";
+    std::cout<<"Age : "<<employees[i].age<<"\n";
+    std::cout<<"Department : "<<employees[i].department<<"\n";
+    std::cout<<"Salary : "<<employees[i].salary<<"\n";
     std::cout<<"========================";
     }
     std::cin.ignore();
