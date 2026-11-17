@@ -124,6 +124,7 @@ void menuApp::observeUserKeys(){
                 displayAllEmployees();
                 break;
                 case 2:
+                std::cout<<"\033[2J\033[H"<<std::flush;
                 std::cout<<"Quitted!";
                 byte1='q';
                 return;
